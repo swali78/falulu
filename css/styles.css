@@ -18,6 +18,8 @@
   --grey:          #E0E0E0;
   --grey-mid:      #9e9e9e;
   --text-muted:    #777;
+  --gold:          #9B7B2A;
+  --gold-light:    #C4952A;
 
   --font-display:  'Cormorant Garamond', 'Times New Roman', Georgia, serif;
   --font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -85,10 +87,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 3rem;
   height: 1px;
   border: none;
-  background: var(--platinum);
+  background: var(--gold);
   margin-bottom: 1.625rem;
 }
-.platinum-rule--dim { background: rgba(192, 192, 192, 0.4); }
+.platinum-rule--dim { background: rgba(155, 123, 42, 0.38); }
 
 /* Section title */
 .section-title {
@@ -222,68 +224,46 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0 2rem;
 }
 
-/* ── Nav logo dual-state ──────────────────────────────────── */
-/* Real JPEG logo: only visible when nav is scrolled (white bg) */
-.nav-logo-real {
-  display: none;
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  transition: opacity var(--transition);
-}
-/* SVG mark: visible over dark transparent nav */
-.nav-logo-svg {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-/* Swap on scroll */
-#navbar.scrolled .nav-logo-real { display: block; }
-#navbar.scrolled .nav-logo-svg  { display: none;  }
-
-/* Logo */
+/* ── Nav logo — real brand PNG in adaptive pill ───────────── */
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
   text-decoration: none;
   flex-shrink: 0;
+  transition: opacity var(--transition);
+}
+.nav-logo:hover { opacity: 0.88; }
+
+/* Pill container: frosted white over dark hero, transparent on white nav */
+.nav-logo-pill {
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0.28rem 0.75rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16);
+  display: inline-flex;
+  align-items: center;
+  transition:
+    background    var(--transition),
+    box-shadow    var(--transition),
+    padding       var(--transition);
+}
+#navbar.scrolled .nav-logo-pill {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 
-.logo-mark {
-  width: 44px;
+/* Logo image inside pill */
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: height var(--transition);
+}
+#navbar.scrolled .nav-logo-img {
   height: 44px;
-  flex-shrink: 0;
-  transition: transform var(--transition);
 }
-.nav-logo:hover .logo-mark { transform: scale(1.04); }
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.logo-name {
-  font-family: var(--font-display);
-  font-size: 1.38rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.025em;
-  transition: color var(--transition);
-}
-#navbar.scrolled .logo-name { color: var(--navy); }
-
-.logo-sub {
-  font-family: var(--font-label);
-  font-size: 0.56rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.65);
-  transition: color var(--transition);
-}
-#navbar.scrolled .logo-sub { color: var(--platinum); }
 
 /* Nav links */
 .nav-menu {
@@ -332,7 +312,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
   background: var(--navy);
   color: var(--white) !important;
-  border: 1.5px solid var(--platinum);
+  border: 1.5px solid var(--gold-light);
   padding: 0.575rem 1.2rem;
   border-radius: 2px;
   margin-left: 0.5rem;
@@ -408,25 +388,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
 }
 
-/* Hero logo */
+/* Hero logo — real horizontal brand PNG in frosted pill */
 .hero-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
   margin-bottom: 3.75rem;
 }
-.hero-logo-svg {
-  width: 58px;
-  height: 58px;
-  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.25));
+.hero-logo-pill {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
+  display: inline-flex;
+  align-items: center;
 }
-.hero-logo-name {
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.04em;
-  opacity: 0.92;
+.hero-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Headline */
@@ -483,31 +463,41 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    ABOUT
    ============================================================ */
-/* ── About section logo ───────────────────────────────────── */
+/* ── About section logo — stacked brand mark ─────────────── */
 .about-logo-wrap {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .about-logo-img {
-  height: 130px;
-  width: auto;
+  max-width: 210px;
+  height: auto;
   object-fit: contain;
+  display: block;
 }
 
-/* ── Footer real logo ─────────────────────────────────────── */
-.footer-logo-real {
-  height: 110px;
+/* ── Footer logo — horizontal PNG in white pill on navy ───── */
+.footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+.footer-logo-pill {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.footer-logo-link:hover .footer-logo-pill {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.24);
+}
+.footer-logo-img {
+  height: 52px;
   width: auto;
   object-fit: contain;
-  /* White bg logo on dark navy: frosted pill container */
-  background: rgba(255, 255, 255, 0.96);
-  padding: 0.625rem 1rem;
-  border-radius: 6px;
   display: block;
-  margin-bottom: 1.25rem;
-  transition: transform var(--transition);
-}
-.footer-logo-link:hover .footer-logo-real {
-  transform: translateY(-2px);
 }
 
 #about {
@@ -662,13 +652,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .sector-rule {
   width: 2rem;
   height: 1px;
-  background: var(--platinum);
+  background: var(--gold);
   margin-bottom: 1.125rem;
   transition: width var(--transition), background var(--transition);
 }
 .sector-card:hover .sector-rule {
   width: 3.5rem;
-  background: var(--steel);
+  background: var(--gold-light);
 }
 
 .sector-desc {
@@ -993,41 +983,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-bottom: 4rem;
 }
 
-.footer-logo-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  margin-bottom: 1.25rem;
-}
-
-.footer-logo-svg {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-}
-
-.footer-logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.footer-logo-name {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.025em;
-}
-
-.footer-logo-sub {
-  font-family: var(--font-label);
-  font-size: 0.52rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(192, 192, 192, 0.55);
-}
+/* .footer-logo-link, .footer-logo-pill, .footer-logo-img — defined in About/Footer block above */
 
 .footer-tagline {
   font-family: var(--font-display);
