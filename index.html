@@ -25,12 +25,17 @@
     <div class="nav-container">
 
       <a href="#hero" class="nav-logo" aria-label="FaLuLu Ltd — Home">
-        <!-- Dark/transparent nav: white text wordmark — no PNG white box on dark bg -->
+        <!-- Dark/transparent nav: circular icon badge + white text -->
         <div class="nav-wordmark">
-          <span class="nav-wordmark-name">FaLuLu</span>
-          <span class="nav-wordmark-ltd">Ltd</span>
+          <div class="nav-icon-badge" aria-hidden="true">
+            <img src="assets/images/logo-icon.png" alt="" class="nav-icon-img" />
+          </div>
+          <div class="nav-wordmark-text">
+            <span class="nav-wordmark-name">FaLuLu</span>
+            <span class="nav-wordmark-ltd">Ltd</span>
+          </div>
         </div>
-        <!-- Scrolled/white nav: real PNG logo — white bg merges with white nav seamlessly -->
+        <!-- Scrolled/white nav: full-colour horizontal PNG (white bg = white nav) -->
         <img src="assets/images/logo-horizontal.png"
              alt="FaLuLu Ltd"
              class="nav-logo-real"
@@ -616,6 +621,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

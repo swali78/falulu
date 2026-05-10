@@ -224,7 +224,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0 2rem;
 }
 
-/* ── Nav logo — dual-state: text on dark, PNG on white ───── */
+/* ── Nav logo — dual-state ────────────────────────────────── */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -232,15 +232,39 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
 }
 
-/* --- State A: transparent/dark nav → white CSS wordmark, zero white box --- */
+/* ── State A: transparent/dark nav ──────────────────────── */
+/* Circular badge — premium monogram treatment on dark bg    */
 .nav-wordmark {
   display: flex;
-  align-items: baseline;
-  gap: 0.45rem;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* FL globe icon — no background, blend removes white PNG bg on dark */
+.nav-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-icon-img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  /* White bg is stripped at runtime via canvas — see main.js */
+}
+
+/* Wordmark text beside the badge */
+.nav-wordmark-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 0.2rem;
 }
 .nav-wordmark-name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 600;
   color: var(--white);
   letter-spacing: 0.025em;
@@ -248,16 +272,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .nav-wordmark-ltd {
   font-family: var(--font-label);
-  font-size: 0.52rem;
+  font-size: 0.5rem;
   font-weight: 500;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  align-self: flex-end;
-  padding-bottom: 0.15rem;
+  color: rgba(255, 255, 255, 0.58);
 }
 
-/* --- State B: scrolled/white nav → real PNG, white bg = white nav, invisible seam --- */
+/* ── State B: scrolled/white nav ─────────────────────────── */
+/* Full horizontal PNG — white logo bg merges with white nav  */
 .nav-logo-real {
   display: none;
   height: 46px;
