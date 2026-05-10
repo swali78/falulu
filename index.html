@@ -25,21 +25,25 @@
     <div class="nav-container">
 
       <a href="#hero" class="nav-logo" aria-label="FaLuLu Ltd — Home">
-        <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" aria-hidden="true" focusable="false">
-          <circle cx="30" cy="32" r="24" fill="none" stroke="#C0C0C0" stroke-width="0.8" opacity="0.55"/>
-          <!-- Meridian lines -->
-          <ellipse cx="30" cy="32" rx="24" ry="8" fill="none" stroke="#C0C0C0" stroke-width="0.6" opacity="0.3"/>
-          <line x1="30" y1="8" x2="30" y2="56" stroke="#C0C0C0" stroke-width="0.5" opacity="0.3"/>
-          <!-- Star -->
-          <path d="M30 7 L31.1 10.4 L34.8 10.4 L31.8 12.6 L32.9 16 L30 13.8 L27.1 16 L28.2 12.6 L25.2 10.4 L28.9 10.4 Z" fill="#C0C0C0"/>
-          <!-- F -->
-          <text x="9" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="700" fill="#1B2A5E">F</text>
-          <!-- L -->
-          <text x="30" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="700" fill="#C0C0C0">L</text>
-        </svg>
-        <div class="logo-text">
-          <span class="logo-name">FaLuLu</span>
-          <span class="logo-sub">Ltd</span>
+        <!-- Real logo: shown when nav is scrolled (white background) -->
+        <img src="assets/images/logo.jpeg"
+             alt="FaLuLu Ltd"
+             class="nav-logo-real"
+             loading="eager" />
+        <!-- SVG fallback: shown over dark hero (transparent nav) -->
+        <div class="nav-logo-svg">
+          <svg class="logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" aria-hidden="true" focusable="false">
+            <circle cx="30" cy="32" r="24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+            <ellipse cx="30" cy="32" rx="24" ry="8" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.6"/>
+            <line x1="30" y1="8" x2="30" y2="56" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+            <path d="M30 7 L31.1 10.4 L34.8 10.4 L31.8 12.6 L32.9 16 L30 13.8 L27.1 16 L28.2 12.6 L25.2 10.4 L28.9 10.4 Z" fill="rgba(255,255,255,0.85)"/>
+            <text x="9" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="700" fill="white">F</text>
+            <text x="30" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="700" fill="rgba(255,255,255,0.7)">L</text>
+          </svg>
+          <div class="logo-text">
+            <span class="logo-name">FaLuLu</span>
+            <span class="logo-sub">Ltd</span>
+          </div>
         </div>
       </a>
 
@@ -113,6 +117,13 @@
       <div class="about-grid">
 
         <div class="about-text">
+          <!-- Real company logo -->
+          <div class="about-logo-wrap fade-in">
+            <img src="assets/images/logo.jpeg"
+                 alt="FaLuLu Ltd — Where Journey Becomes Identity"
+                 class="about-logo-img"
+                 loading="lazy" />
+          </div>
           <div class="section-label fade-in">Our Story</div>
           <hr class="platinum-rule fade-in" aria-hidden="true" />
           <h2 id="about-title" class="section-title fade-in">
@@ -569,18 +580,10 @@
 
         <div class="footer-brand">
           <a href="#hero" class="footer-logo-link" aria-label="FaLuLu Ltd — return to top">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" class="footer-logo-svg" aria-hidden="true" focusable="false">
-              <circle cx="30" cy="32" r="24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
-              <ellipse cx="30" cy="32" rx="24" ry="8" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.6"/>
-              <line x1="30" y1="8" x2="30" y2="56" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-              <path d="M30 7 L31.1 10.4 L34.8 10.4 L31.8 12.6 L32.9 16 L30 13.8 L27.1 16 L28.2 12.6 L25.2 10.4 L28.9 10.4 Z" fill="rgba(255,255,255,0.55)"/>
-              <text x="9" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="700" fill="white">F</text>
-              <text x="30" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="700" fill="rgba(255,255,255,0.6)">L</text>
-            </svg>
-            <div class="footer-logo-text">
-              <span class="footer-logo-name">FaLuLu</span>
-              <span class="footer-logo-sub">Ltd</span>
-            </div>
+            <img src="assets/images/logo.jpeg"
+                 alt="FaLuLu Ltd"
+                 class="footer-logo-real"
+                 loading="lazy" />
           </a>
 
           <p class="footer-tagline">"Where Journey Becomes Identity"</p>
