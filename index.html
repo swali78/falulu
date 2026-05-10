@@ -25,12 +25,16 @@
     <div class="nav-container">
 
       <a href="#hero" class="nav-logo" aria-label="FaLuLu Ltd — Home">
-        <div class="nav-logo-pill">
-          <img src="assets/images/logo-horizontal.png"
-               alt="FaLuLu Ltd"
-               class="nav-logo-img"
-               loading="eager" />
+        <!-- Dark/transparent nav: white text wordmark — no PNG white box on dark bg -->
+        <div class="nav-wordmark">
+          <span class="nav-wordmark-name">FaLuLu</span>
+          <span class="nav-wordmark-ltd">Ltd</span>
         </div>
+        <!-- Scrolled/white nav: real PNG logo — white bg merges with white nav seamlessly -->
+        <img src="assets/images/logo-horizontal.png"
+             alt="FaLuLu Ltd"
+             class="nav-logo-real"
+             loading="eager" />
       </a>
 
       <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -59,16 +63,6 @@
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
-
-      <!-- Real brand logo in frosted pill over dark hero -->
-      <div class="hero-logo-wrap fade-in" aria-label="FaLuLu Ltd">
-        <div class="hero-logo-pill">
-          <img src="assets/images/logo-horizontal.png"
-               alt="FaLuLu Ltd"
-               class="hero-logo-img"
-               loading="eager" />
-        </div>
-      </div>
 
       <h1 class="hero-headline fade-in">
         Where Journey<br>Becomes Identity
