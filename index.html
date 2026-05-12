@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="FaLuLu Ltd — A UK-headquartered parent company with subsidiaries spanning aviation, fragrance, and international trade. Where Journey Becomes Identity." />
-  <title>FaLuLu Ltd — Where Journey Becomes Identity</title>
+  <meta name="description" content="FaLuLu Ltd — A UK-headquartered parent company with subsidiaries spanning aviation, fragrance, and international trade." />
+  <title>FaLuLu Ltd</title>
+  <link rel="icon" type="image/png" href="/src/assets/images/logo-icon.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,7 +15,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="/src/css/styles.css" />
 </head>
 <body>
 
@@ -28,7 +29,7 @@
         <!-- Dark/transparent nav: circular icon badge + white text -->
         <div class="nav-wordmark">
           <div class="nav-icon-badge" aria-hidden="true">
-            <img src="assets/images/logo-icon.png" alt="" class="nav-icon-img" />
+            <img src="/src/assets/images/logo-icon.png" alt="" class="nav-icon-img" />
           </div>
           <div class="nav-wordmark-text">
             <span class="nav-wordmark-name">FaLuLu</span>
@@ -36,7 +37,7 @@
           </div>
         </div>
         <!-- Scrolled/white nav: full-colour horizontal PNG (white bg = white nav) -->
-        <img src="assets/images/logo-horizontal.png"
+        <img src="/src/assets/images/logo-horizontal.png"
              alt="FaLuLu Ltd"
              class="nav-logo-real"
              loading="eager" />
@@ -101,7 +102,7 @@
         <div class="about-text">
           <!-- Stacked brand logo: FL globe mark above wordmark -->
           <div class="about-logo-wrap fade-in">
-            <img src="assets/images/logo-stacked.png"
+            <img src="/src/assets/images/logo-stacked.png"
                  alt="FaLuLu Ltd — Where Journey Becomes Identity"
                  class="about-logo-img"
                  loading="lazy" />
@@ -138,172 +139,7 @@
 
         <!-- Globe graphic -->
         <div class="about-visual fade-in" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" class="globe-svg">
-            <defs>
-              <!-- Atmospheric gradient background -->
-              <radialGradient id="gBg" cx="42%" cy="38%" r="65%">
-                <stop offset="0%"   stop-color="#DDE8F6"/>
-                <stop offset="50%"  stop-color="#EBF0FA"/>
-                <stop offset="100%" stop-color="#F3F4F8"/>
-              </radialGradient>
-              <!-- Sheen highlight for 3-D feel -->
-              <radialGradient id="gSheen" cx="36%" cy="28%" r="50%">
-                <stop offset="0%"   stop-color="white" stop-opacity="0.72"/>
-                <stop offset="100%" stop-color="white" stop-opacity="0"/>
-              </radialGradient>
-              <!-- UK glow halo -->
-              <radialGradient id="gUK" cx="50%" cy="50%" r="50%">
-                <stop offset="0%"   stop-color="#1B2A5E" stop-opacity="0.45"/>
-                <stop offset="100%" stop-color="#1B2A5E" stop-opacity="0"/>
-              </radialGradient>
-              <!-- Destination dot glow -->
-              <radialGradient id="gDot" cx="50%" cy="50%" r="50%">
-                <stop offset="0%"   stop-color="#4A6FA5" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#4A6FA5" stop-opacity="0"/>
-              </radialGradient>
-              <!-- Drop shadow -->
-              <filter id="fShadow" x="-18%" y="-12%" width="136%" height="136%">
-                <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#1B2A5E" flood-opacity="0.12"/>
-              </filter>
-              <!-- Clip everything inside the globe circle -->
-              <clipPath id="cGlobe">
-                <circle cx="220" cy="220" r="173"/>
-              </clipPath>
-            </defs>
-
-            <!-- Shadow behind globe -->
-            <ellipse cx="224" cy="232" rx="172" ry="168" fill="#D8E2F0" filter="url(#fShadow)" opacity="0.7"/>
-
-            <!-- Globe body -->
-            <circle cx="220" cy="220" r="173" fill="url(#gBg)"/>
-
-            <!-- Grid lines — clipped inside globe -->
-            <g clip-path="url(#cGlobe)" fill="none">
-              <!-- Equator (slightly bolder) -->
-              <line x1="47" y1="220" x2="393" y2="220" stroke="#A8BACC" stroke-width="0.9" opacity="0.6"/>
-              <!-- Prime meridian -->
-              <line x1="220" y1="47" x2="220" y2="393" stroke="#A8BACC" stroke-width="0.75" opacity="0.5"/>
-              <!-- Latitude parallels -->
-              <ellipse cx="220" cy="220" rx="173" ry="43"  stroke="#B2C2D4" stroke-width="0.65" opacity="0.55"/>
-              <ellipse cx="220" cy="220" rx="173" ry="95"  stroke="#B2C2D4" stroke-width="0.65" opacity="0.45"/>
-              <ellipse cx="220" cy="220" rx="173" ry="145" stroke="#B2C2D4" stroke-width="0.65" opacity="0.38"/>
-              <!-- Longitude meridians -->
-              <ellipse cx="220" cy="220" rx="86"  ry="173" stroke="#B2C2D4" stroke-width="0.65" opacity="0.45"/>
-              <ellipse cx="220" cy="220" rx="150" ry="173" stroke="#B2C2D4" stroke-width="0.65" opacity="0.32"/>
-            </g>
-
-            <!-- Continent landmasses — clipped, filled with brand blue -->
-            <g clip-path="url(#cGlobe)"
-               fill="rgba(74,111,165,0.2)"
-               stroke="rgba(74,111,165,0.52)"
-               stroke-width="1.3"
-               stroke-linejoin="round">
-              <!-- Greenland -->
-              <path d="M152 84 Q168 72 188 76 Q208 84 206 104 Q198 124 176 126 Q155 122 146 105 Q140 93 152 84 Z"/>
-              <!-- North America -->
-              <path d="M 84 144
-                       Q 100 112 130 107
-                       Q 160 103 176 122
-                       Q 190 144 186 170
-                       Q 176 196 154 208
-                       Q 130 216 108 206
-                       Q 86 194 80 168
-                       Q 77 154 84 144 Z"/>
-              <!-- South America -->
-              <path d="M 128 210
-                       Q 148 198 170 210
-                       Q 188 228 186 256
-                       Q 180 282 162 292
-                       Q 144 298 128 288
-                       Q 110 272 108 250
-                       Q 104 224 122 212 Z"/>
-              <!-- Europe (with slight Iberian nub) -->
-              <path d="M 206 126
-                       Q 222 116 244 118
-                       Q 266 124 272 142
-                       Q 276 162 264 176
-                       Q 250 185 228 184
-                       Q 206 180 198 162
-                       Q 193 144 206 126 Z"/>
-              <!-- Africa (inverted trapezoid tapering south) -->
-              <path d="M 202 182
-                       Q 226 172 252 184
-                       Q 274 200 274 232
-                       Q 271 268 254 286
-                       Q 235 302 216 298
-                       Q 194 290 186 266
-                       Q 178 238 182 210
-                       Q 188 192 202 182 Z"/>
-              <!-- Asia (large, right side) -->
-              <path d="M 258 115
-                       Q 288 98 322 102
-                       Q 358 108 380 132
-                       Q 396 156 390 180
-                       Q 380 205 356 216
-                       Q 326 224 296 220
-                       Q 264 212 252 190
-                       Q 242 166 250 140 Z"/>
-              <!-- Australia -->
-              <path d="M 292 244
-                       Q 318 230 352 242
-                       Q 375 258 372 282
-                       Q 362 306 334 312
-                       Q 304 314 284 296
-                       Q 268 278 274 260 Z"/>
-            </g>
-
-            <!-- Globe border ring -->
-            <circle cx="220" cy="220" r="173" fill="none" stroke="#C0CEDF" stroke-width="1.75"/>
-
-            <!-- Sheen overlay (top-left highlight for 3-D depth) -->
-            <circle cx="220" cy="220" r="173" fill="url(#gSheen)"/>
-
-            <!-- Route arcs from UK HQ — clipped inside globe -->
-            <g clip-path="url(#cGlobe)" fill="none" stroke="#4A6FA5" stroke-linecap="round">
-              <!-- UK → North America -->
-              <path d="M 220 152 Q 168 130 134 172"
-                    stroke-width="1.5" stroke-dasharray="5,3.8" opacity="0.62"/>
-              <!-- UK → East Asia -->
-              <path d="M 220 152 Q 285 118 354 138"
-                    stroke-width="1.5" stroke-dasharray="5,3.8" opacity="0.62"/>
-              <!-- UK → Africa / Middle East -->
-              <path d="M 220 152 Q 228 198 230 244"
-                    stroke-width="1.5" stroke-dasharray="5,3.8" opacity="0.52"/>
-            </g>
-
-            <!-- Destination halos + dots -->
-            <!-- Americas -->
-            <circle cx="134" cy="172" r="10" fill="url(#gDot)"/>
-            <circle cx="134" cy="172" r="5.5" fill="#4A6FA5" opacity="0.78"/>
-            <circle cx="132" cy="170" r="1.8" fill="white" opacity="0.5"/>
-            <!-- Asia -->
-            <circle cx="354" cy="138" r="10" fill="url(#gDot)"/>
-            <circle cx="354" cy="138" r="5.5" fill="#4A6FA5" opacity="0.78"/>
-            <circle cx="352" cy="136" r="1.8" fill="white" opacity="0.5"/>
-            <!-- Africa/Middle East -->
-            <circle cx="230" cy="244" r="10" fill="url(#gDot)"/>
-            <circle cx="230" cy="244" r="5.5" fill="#4A6FA5" opacity="0.78"/>
-            <circle cx="228" cy="242" r="1.8" fill="white" opacity="0.5"/>
-
-            <!-- UK HQ marker -->
-            <!-- Outer pulse ring -->
-            <circle cx="220" cy="152" r="24" fill="none" stroke="#1B2A5E" stroke-width="0.75" opacity="0.14"/>
-            <!-- Mid pulse ring -->
-            <circle cx="220" cy="152" r="16" fill="none" stroke="#1B2A5E" stroke-width="1"    opacity="0.24"/>
-            <!-- Glow halo -->
-            <circle cx="220" cy="152" r="10" fill="url(#gUK)"/>
-            <!-- Main dot -->
-            <circle cx="220" cy="152" r="5.5" fill="#1B2A5E"/>
-            <!-- Shine -->
-            <circle cx="218" cy="150" r="1.8" fill="white" opacity="0.6"/>
-
-            <!-- HQ label -->
-            <text x="230" y="149"
-                  font-family="'Montserrat', sans-serif"
-                  font-size="7.5" font-weight="700"
-                  fill="#1B2A5E" opacity="0.82"
-                  letter-spacing="0.1em">HQ</text>
-          </svg>
+          <img src="/src/assets/images/world-map.svg" class="map-svg" alt="Global Map Visualization" style="opacity: 0.6; filter: invert(36%) sepia(17%) saturate(1750%) hue-rotate(182deg) brightness(97%) contrast(85%);" />
         </div>
 
       </div>
@@ -321,17 +157,15 @@
         <div class="section-label">Our Industries</div>
         <hr class="platinum-rule" aria-hidden="true" />
         <h2 id="sectors-title" class="section-title">What We Do</h2>
-        <p class="section-intro">Three distinct sectors. One unified standard of excellence.</p>
+        <p class="section-intro">Three distinct sectors. One unified standard of excellence. <span class="launching-soon-badge">Launching soon</span></p>
       </div>
 
       <div class="sectors-grid">
 
         <!-- Aviation -->
         <article class="sector-card fade-in" aria-labelledby="sector-aviation">
-          <div class="sector-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/>
-            </svg>
+          <div class="sector-image-wrap" aria-hidden="true">
+            <img src="/src/assets/images/aviation_realistic.png" alt="Aviation sector" class="sector-image" loading="lazy" />
           </div>
           <h3 id="sector-aviation" class="sector-title">Aviation</h3>
           <div class="sector-rule" aria-hidden="true"></div>
@@ -341,19 +175,8 @@
 
         <!-- Perfume & Fragrance -->
         <article class="sector-card fade-in" aria-labelledby="sector-fragrance">
-          <div class="sector-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <!-- Perfume bottle body -->
-              <rect x="7" y="11" width="10" height="10" rx="2"/>
-              <!-- Bottle neck -->
-              <rect x="9.5" y="7" width="5" height="4" rx="1"/>
-              <!-- Atomiser nozzle -->
-              <path d="M14.5 8.5 H18 M18 8.5 V6"/>
-              <!-- Spray dots -->
-              <circle cx="20" cy="5.5" r="0.5" fill="currentColor"/>
-              <circle cx="20" cy="7.5" r="0.5" fill="currentColor"/>
-              <circle cx="21.5" cy="6.5" r="0.5" fill="currentColor"/>
-            </svg>
+          <div class="sector-image-wrap" aria-hidden="true">
+            <img src="/src/assets/images/fragrance_realistic.png" alt="Fragrance sector" class="sector-image" loading="lazy" />
           </div>
           <h3 id="sector-fragrance" class="sector-title">Perfume &amp; Fragrance</h3>
           <div class="sector-rule" aria-hidden="true"></div>
@@ -363,12 +186,8 @@
 
         <!-- Import & Export -->
         <article class="sector-card fade-in" aria-labelledby="sector-trade">
-          <div class="sector-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
+          <div class="sector-image-wrap" aria-hidden="true">
+            <img src="/src/assets/images/import_export_realistic.png" alt="Import and Export sector" class="sector-image" loading="lazy" />
           </div>
           <h3 id="sector-trade" class="sector-title">Import &amp; Export</h3>
           <div class="sector-rule" aria-hidden="true"></div>
@@ -396,7 +215,7 @@
       <div class="pillars-grid">
 
         <div class="pillar fade-in">
-          <div class="pillar-icon" aria-hidden="true">🌍</div>
+          <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
           <h3 class="pillar-title">Global Reach</h3>
           <p class="pillar-text">Operations spanning multiple continents, built on trusted partnerships and deep local expertise.</p>
         </div>
@@ -404,7 +223,7 @@
         <div class="pillar-sep" aria-hidden="true"></div>
 
         <div class="pillar fade-in">
-          <div class="pillar-icon" aria-hidden="true">🇬🇧</div>
+          <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-flag"></i></div>
           <h3 class="pillar-title">UK-Based Trust</h3>
           <p class="pillar-text">Headquartered in the United Kingdom — a hallmark of governance, reliability, and international credibility.</p>
         </div>
@@ -412,7 +231,7 @@
         <div class="pillar-sep" aria-hidden="true"></div>
 
         <div class="pillar fade-in">
-          <div class="pillar-icon" aria-hidden="true">⚡</div>
+          <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
           <h3 class="pillar-title">Multi-Sector Agility</h3>
           <p class="pillar-text">Diversified across high-growth industries, enabling resilience and powerful cross-sector synergies.</p>
         </div>
@@ -420,7 +239,7 @@
         <div class="pillar-sep" aria-hidden="true"></div>
 
         <div class="pillar fade-in">
-          <div class="pillar-icon" aria-hidden="true">🤝</div>
+          <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
           <h3 class="pillar-title">Partnership First</h3>
           <p class="pillar-text">Built on integrity and long-term relationships. We grow with our partners, not at their expense.</p>
         </div>
@@ -437,15 +256,6 @@
 
     <!-- World map watermark -->
     <div class="contact-watermark" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
-        <circle cx="400" cy="400" r="320" fill="none" stroke="#1B2A5E" stroke-width="2"/>
-        <ellipse cx="400" cy="400" rx="320" ry="105" fill="none" stroke="#1B2A5E" stroke-width="1.5"/>
-        <ellipse cx="400" cy="400" rx="320" ry="225" fill="none" stroke="#1B2A5E" stroke-width="1.5"/>
-        <line x1="400" y1="80" x2="400" y2="720" stroke="#1B2A5E" stroke-width="1.5"/>
-        <line x1="80"  y1="400" x2="720" y2="400" stroke="#1B2A5E" stroke-width="1.5"/>
-        <ellipse cx="400" cy="400" rx="165" ry="320" fill="none" stroke="#1B2A5E" stroke-width="1.5"/>
-        <ellipse cx="400" cy="400" rx="285" ry="320" fill="none" stroke="#1B2A5E" stroke-width="1"/>
-      </svg>
     </div>
 
     <div class="container">
@@ -489,18 +299,23 @@
             </div>
             <div>
               <span class="contact-detail-label">Telephone</span>
-              <p>+44 (0) 20 0000 0000</p>
+              <p>+44 7731 31****</p>
             </div>
           </div>
 
           <div class="contact-note">
-            <p>Registered in England &amp; Wales.<br>Company No. 00000000</p>
+            <p>Registered in Scotland.</p>
           </div>
         </div>
 
         <!-- Contact form -->
         <div class="contact-form-wrap fade-in">
-          <form id="contact-form" class="contact-form" novalidate aria-label="Contact enquiry form">
+          <form id="contact-form" class="contact-form" novalidate aria-label="Contact enquiry form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms Access Key (Replace with real key) -->
+            <input type="hidden" name="access_key" value="eb1afafb-3c30-4166-8cf3-6192e5825cf7">
+            <input type="hidden" name="subject" value="New Enquiry from FaLuLu Website">
+            <!-- Honeypot spam prevention -->
+            <input type="checkbox" name="botcheck" style="display: none;">
 
             <div class="form-row">
               <div class="form-group">
@@ -538,13 +353,17 @@
               <span>Send Message</span>
               <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
             </button>
-
-            <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-              <p>Thank you. Your message has been received. We will be in touch shortly.</p>
-            </div>
-
           </form>
+
+          <div class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+            <div class="success-icon-wrap">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            </div>
+            <div class="success-text-wrap">
+              <h4 class="success-heading">Submitted successfully!</h4>
+              <p>Our team will contact you shortly.</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -563,23 +382,21 @@
         <div class="footer-brand">
           <a href="#hero" class="footer-logo-link" aria-label="FaLuLu Ltd — return to top">
             <div class="footer-logo-pill">
-              <img src="assets/images/logo-horizontal.png"
+              <img src="/src/assets/images/logo-horizontal.png"
                    alt="FaLuLu Ltd"
                    class="footer-logo-img"
                    loading="lazy" />
             </div>
           </a>
 
-          <p class="footer-tagline">"Where Journey Becomes Identity"</p>
-
-          <div class="footer-social" aria-label="Social media links">
-            <a href="#" class="social-link" aria-label="LinkedIn" rel="noopener noreferrer">
+          <div class="footer-social" aria-label="Social media links" style="margin-top: 1rem;">
+            <a href="https://www.linkedin.com/company/falulu/" class="social-link" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
               <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
             </a>
-            <a href="#" class="social-link" aria-label="Instagram" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/faluluofficial?igsh=MW45eXFmZ2ZmYno4NQ%3D%3D&utm_source=qr" class="social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
               <i class="fa-brands fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="#" class="social-link" aria-label="X (formerly Twitter)" rel="noopener noreferrer">
+            <a href="https://x.com/faluluofficial?s=11" class="social-link" aria-label="X (formerly Twitter)" rel="noopener noreferrer" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
             </a>
           </div>
@@ -610,7 +427,7 @@
       <hr class="footer-rule" aria-hidden="true" />
 
       <div class="footer-bottom">
-        <p class="copyright">© 2025 FaLuLu Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+        <p class="copyright">© 2025 FaLuLu Ltd. All rights reserved. Registered in Scotland.</p>
         <div class="footer-legal">
           <a href="#" class="legal-link">Privacy Policy</a>
           <span aria-hidden="true">·</span>
@@ -621,6 +438,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

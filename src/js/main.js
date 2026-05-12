@@ -211,7 +211,7 @@
       });
     });
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const allValid = requiredFields.reduce((acc, field) => {
@@ -219,58 +219,45 @@
       }, true);
 
       if (!allValid) {
-        // Focus the first invalid field
         const firstInvalid = requiredFields.find(f => f.classList.contains('error'));
         if (firstInvalid) firstInvalid.focus();
         return;
       }
 
-      // Success state
-      form.setAttribute('aria-hidden', 'true');
-      form.style.display = 'none';
-      if (formSuccess) {
-        formSuccess.hidden = false;
-        formSuccess.focus();
+      const submitBtn = form.querySelector('.btn-submit');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>Sending...</span><i class="fa-solid fa-circle-notch fa-spin"></i>';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const data = await response.json();
+
+        if (data.success) {
+          form.setAttribute('aria-hidden', 'true');
+          form.style.display = 'none';
+          if (formSuccess) {
+            formSuccess.hidden = false;
+            formSuccess.focus();
+          }
+        } else {
+          alert('Something went wrong. Please try again.');
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        alert('Failed to send message. Please check your connection and try again.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
       }
     });
   }
 
-  /* ── Nav icon — strip white background via Canvas ──────── */
-  // logo-icon.png has a white background baked into the PNG.
-  // Canvas pixel manipulation sets near-white pixels to alpha=0
-  // so the FL globe mark appears in original navy/gold on dark bg.
-  const navIconImg = document.querySelector('.nav-icon-img');
-
-  function removeWhiteBg(imgEl) {
-    // Guard: skip if already processed (src is a data URL)
-    if (!imgEl || imgEl.src.startsWith('data:')) return;
-    try {
-      const canvas  = document.createElement('canvas');
-      const ctx     = canvas.getContext('2d');
-      canvas.width  = imgEl.naturalWidth  || 1000;
-      canvas.height = imgEl.naturalHeight || 1000;
-      ctx.drawImage(imgEl, 0, 0);
-      const id   = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = id.data;
-      const threshold = 238;
-      for (let i = 0; i < data.length; i += 4) {
-        if (data[i] > threshold && data[i + 1] > threshold && data[i + 2] > threshold) {
-          data[i + 3] = 0; // transparent
-        }
-      }
-      ctx.putImageData(id, 0, 0);
-      imgEl.src = canvas.toDataURL('image/png');
-    } catch (err) {
-      // Tainted canvas (cross-origin) — leave as-is
-    }
-  }
-
-  if (navIconImg) {
-    if (navIconImg.complete && navIconImg.naturalWidth > 0) {
-      removeWhiteBg(navIconImg);
-    } else {
-      navIconImg.addEventListener('load', function () { removeWhiteBg(this); }, { once: true });
-    }
-  }
-
+  // Canvas white background stripping removed as images are now natively transparent PNGs.
 })();

@@ -248,11 +248,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
 }
 .nav-icon-img {
-  width: 52px;
-  height: 52px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   display: block;
-  /* White bg is stripped at runtime via canvas — see main.js */
 }
 
 /* Wordmark text beside the badge */
@@ -283,7 +282,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Full horizontal PNG — white logo bg merges with white nav  */
 .nav-logo-real {
   display: none;
-  height: 46px;
+  height: 130px;
   width: auto;
   object-fit: contain;
 }
@@ -487,23 +486,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 1.25rem;
 }
 .footer-logo-pill {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 0.55rem 1.1rem;
-  border-radius: 6px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   display: inline-flex;
   align-items: center;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
-  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: none;
+  transition: transform var(--transition), opacity var(--transition);
 }
 .footer-logo-link:hover .footer-logo-pill {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.24);
+  opacity: 0.85;
 }
 .footer-logo-img {
-  height: 52px;
+  height: 180px;
   width: auto;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 #about {
@@ -633,18 +633,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: scaleX(1);
 }
 
-.sector-icon {
-  width: 46px;
-  height: 46px;
-  color: var(--steel);
+.sector-image-wrap {
+  width: 100%;
+  height: 200px;
   margin-bottom: 1.625rem;
-  transition: color var(--transition), transform var(--transition);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(27, 42, 94, 0.08);
 }
-.sector-card:hover .sector-icon {
-  color: var(--navy);
-  transform: scale(1.08);
+.sector-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
 }
-.sector-icon svg { width: 100%; height: 100%; }
+.sector-card:hover .sector-image {
+  transform: scale(1.06);
+}
 
 .sector-title {
   font-family: var(--font-display);
@@ -686,6 +691,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .sector-card:hover .sector-cta {
   color: var(--navy);
   letter-spacing: 0.22em;
+}
+
+/* Launching Soon Badge */
+.launching-soon-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  font-family: var(--font-label);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  vertical-align: middle;
+  margin-left: 0.5rem;
 }
 
 /* ============================================================
@@ -748,6 +769,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
   margin-bottom: 1.125rem;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+  color: var(--gold-light);
 }
 
 .pillar-title {
@@ -772,7 +794,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ============================================================ */
 .contact-section {
   padding: 8rem 0;
-  background: var(--white);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.75)), url('../assets/images/scottish-bg.png');
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
 }
@@ -953,25 +977,62 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn-submit i { font-size: 0.8rem; }
 
 /* Success state */
+@keyframes slideUpFadeIn {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes iconPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.form-success[hidden] {
+  display: none !important;
+}
 .form-success {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
-  padding: 1.1rem 1.375rem;
-  background: rgba(74, 111, 165, 0.07);
-  border: 1px solid rgba(74, 111, 165, 0.22);
-  border-radius: 2px;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(74, 111, 165, 0.05);
+  border: 1px solid rgba(74, 111, 165, 0.15);
+  border-radius: 4px;
   margin-top: 1rem;
   color: var(--navy);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.5;
+  box-shadow: 0 4px 15px rgba(27, 42, 94, 0.05);
 }
-.form-success i {
-  color: var(--steel);
-  font-size: 1.3rem;
-  flex-shrink: 0;
+.form-success:not([hidden]) {
+  animation: slideUpFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-.form-success p { margin: 0; }
+
+.success-icon-wrap i {
+  color: #2e7d32; /* Success green */
+  font-size: 1.8rem;
+}
+.form-success:not([hidden]) .success-icon-wrap i {
+  animation: iconPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.success-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.success-heading {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.1rem;
+}
+.success-text-wrap p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
 
 /* ============================================================
    FOOTER
@@ -1164,8 +1225,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     margin-top: 1.25rem;
     width: 100%;
     text-align: center;
-    display: block;
-    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: center;
+    padding: 0.875rem 1rem;
+    white-space: normal;
+  }
+
+  /* Make submit button responsive on tablet/mobile */
+  .btn-submit {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Hero */
