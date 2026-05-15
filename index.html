@@ -139,7 +139,33 @@
 
         <!-- Globe graphic -->
         <div class="about-visual fade-in" aria-hidden="true">
-          <img src="/src/assets/images/world-map.svg" class="map-svg" alt="Global Map Visualization" style="opacity: 0.6; filter: invert(36%) sepia(17%) saturate(1750%) hue-rotate(182deg) brightness(97%) contrast(85%);" />
+          <div class="map-wrapper">
+            <img src="/src/assets/images/world-map.svg" class="map-svg" alt="Global Map Visualization" style="opacity: 0.6; filter: invert(36%) sepia(17%) saturate(1750%) hue-rotate(182deg) brightness(97%) contrast(85%);" />
+            
+            <!-- SVG Flight Paths -->
+            <svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <!-- Scotland to India -->
+              <path d="M 46.8 18.5 Q 60 10 71.8 52" class="flight-path-line" />
+              <!-- London to India -->
+              <path d="M 47.8 25.5 Q 60 20 71.8 52" class="flight-path-line" />
+            </svg>
+
+            <!-- UK / London -->
+            <div class="map-pin uk-pin">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+            </div>
+            <!-- Scotland -->
+            <div class="map-pin scotland-pin">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+            </div>
+            <!-- India -->
+            <div class="map-pin india-pin">
+              <div class="pin-dot"></div>
+              <div class="pin-pulse"></div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -217,31 +243,37 @@
         <div class="pillar fade-in">
           <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
           <h3 class="pillar-title">Global Reach</h3>
-          <p class="pillar-text">Operations spanning multiple continents, built on trusted partnerships and deep local expertise.</p>
+          <p class="pillar-text">Operating across multiple continents through trusted partnerships, strategic networks, and deep regional expertise.</p>
         </div>
-
-        <div class="pillar-sep" aria-hidden="true"></div>
 
         <div class="pillar fade-in">
           <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-flag"></i></div>
           <h3 class="pillar-title">UK-Based Trust</h3>
-          <p class="pillar-text">Headquartered in the United Kingdom — a hallmark of governance, reliability, and international credibility.</p>
+          <p class="pillar-text">Headquartered in the United Kingdom — representing integrity, governance, reliability, and international business credibility.</p>
         </div>
-
-        <div class="pillar-sep" aria-hidden="true"></div>
 
         <div class="pillar fade-in">
           <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
           <h3 class="pillar-title">Multi-Sector Agility</h3>
-          <p class="pillar-text">Diversified across high-growth industries, enabling resilience and powerful cross-sector synergies.</p>
+          <p class="pillar-text">Diversified across high-growth industries, enabling resilience, innovation, and powerful cross-sector opportunities.</p>
         </div>
-
-        <div class="pillar-sep" aria-hidden="true"></div>
 
         <div class="pillar fade-in">
           <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-handshake"></i></div>
           <h3 class="pillar-title">Partnership First</h3>
-          <p class="pillar-text">Built on integrity and long-term relationships. We grow with our partners, not at their expense.</p>
+          <p class="pillar-text">Built on transparency, integrity, and long-term relationships. We succeed by growing together with our partners.</p>
+        </div>
+
+        <div class="pillar fade-in">
+          <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-compass"></i></div>
+          <h3 class="pillar-title">Vision Beyond Borders</h3>
+          <p class="pillar-text">Driven by innovation and global ambition, FaLuLu is building a future-focused ecosystem designed for the next generation of international business.</p>
+        </div>
+
+        <div class="pillar fade-in">
+          <div class="pillar-icon" aria-hidden="true"><i class="fa-solid fa-award"></i></div>
+          <h3 class="pillar-title">Excellence as Standard</h3>
+          <p class="pillar-text">We are committed to delivering quality, professionalism, and exceptional experiences across every sector we serve.</p>
         </div>
 
       </div>
