@@ -679,8 +679,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .india-pin {
-  top: 48%;
-  left: 71%;
+  top: 45.5%;
+  left: 68.8%;
 }
 
 /* ============================================================
@@ -696,8 +696,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .sectors-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
 }
 
 .sector-card {
