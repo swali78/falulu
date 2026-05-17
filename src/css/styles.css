@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Prevents sticky header overlapping section titles when navigated to */
   font-size: 16px;
 }
 
@@ -586,7 +587,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 8px 32px rgba(27, 42, 94, 0.06));
+  filter: brightness(0) invert(13%) sepia(85%) saturate(2893%) hue-rotate(213deg) brightness(91%) contrast(97%);
 }
 
 .map-wrapper {
@@ -603,21 +604,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Anchor the bottom-center (the tip) to the coordinates */
-  transform: translate(-50%, -100%);
+  /* Center exactly on the coordinate */
+  transform: translate(-50%, -50%);
 }
 
 .pin-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--navy); /* Dark Blue */
-  border: 1px solid var(--white);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
+  width: 6px;
+  height: 6px;
+  background-color: var(--gold);
+  border-radius: 50%;
   position: relative;
   z-index: 2;
-  box-shadow: 0 0 10px rgba(27, 42, 94, 0.4), -2px 2px 4px rgba(0,0,0,0.2);
-  animation: pinBounce 2s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+  box-shadow: 0 0 6px rgba(155, 123, 42, 0.4);
 }
 
 .map-lines {
@@ -632,11 +630,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .flight-path-line {
   fill: none;
-  stroke: var(--navy);
-  stroke-width: 0.5;
+  stroke: var(--gold);
+  stroke-width: 0.8;
   stroke-dasharray: 2 4;
   stroke-linecap: round;
-  opacity: 0.3;
+  opacity: 0.6;
   animation: dashMove 15s linear infinite;
 }
 
@@ -647,41 +645,24 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .pin-pulse {
   position: absolute;
-  width: 10px;
-  height: 4px;
-  background-color: var(--navy);
+  width: 14px;
+  height: 14px;
+  background-color: var(--gold);
   border-radius: 50%;
   z-index: 1;
-  bottom: -4px;
-  opacity: 0.2;
-  filter: blur(1.5px);
-  animation: pinShadowPulse 2s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  animation: nodePulse 2s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
 }
 
-@keyframes pinBounce {
-  0%, 100% { transform: rotate(-45deg) translate(0, 0); }
-  50% { transform: rotate(-45deg) translate(6px, -6px); }
+@keyframes nodePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  50% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
 }
 
-@keyframes pinShadowPulse {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.8); opacity: 0; }
-}
 
-.uk-pin {
-  top: 22.5%;
-  left: 47.6%;
-}
-
-.scotland-pin {
-  top: 17%;
-  left: 47.2%;
-}
-
-.india-pin {
-  top: 45.5%;
-  left: 68.8%;
-}
 
 /* ============================================================
    SECTORS
@@ -1379,14 +1360,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .about-visual {
     order: -1;
   }
-  .map-svg {
+  .map-wrapper {
     max-width: 320px;
     margin: 0 auto;
     animation: none;
   }
+  .map-svg {
+    max-width: 100%;
+  }
 
   /* Sectors */
-  .categories-section { padding: 0; }
+  .sectors-section { padding: 5rem 0; }
   .sectors-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1412,9 +1396,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .contact-form { padding: 1.875rem 1.5rem; }
 
   /* Footer */
+  .footer {
+    padding: 3rem 0 0;
+  }
   .footer-top {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
+    padding-bottom: 2rem;
   }
   .footer-brand { grid-column: auto; }
   .footer-bottom {
